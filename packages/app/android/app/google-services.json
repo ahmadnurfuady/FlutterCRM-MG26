@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "471126529740",
+    "project_id": "crmflutter-siapsoft",
+    "storage_bucket": "crmflutter-siapsoft.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471126529740:android:83baff49820a3997779469",
+        "android_client_info": {
+          "package_name": "com.example.crm_dashboard"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAU_OMo0De4ukTvO8XRPncGneM-hl4QyNI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
