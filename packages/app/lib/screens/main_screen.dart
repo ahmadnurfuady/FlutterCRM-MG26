@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:crm_dashboard/widgets/bottom_nav_bar.dart';
 import 'package:crm_dashboard/screens/dashboard_screen.dart';
 import 'package:crm_dashboard/screens/contacts_screen.dart';
+import 'package:crm_dashboard/screens/company_screen.dart';
 import 'package:crm_dashboard/screens/deals_pipeline_screen.dart';
 import 'package:crm_dashboard/screens/tasks_screen.dart';
 import 'package:crm_dashboard/screens/settings_screen.dart';
@@ -19,6 +20,7 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> _screens = [
     const DashboardScreen(),
     const ContactsScreen(),
+    const CompaniesScreen(),
     const DealsPipelineScreen(),
     const TasksScreen(),
     const SettingsScreen(),

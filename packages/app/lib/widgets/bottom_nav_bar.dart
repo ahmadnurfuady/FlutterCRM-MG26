@@ -38,24 +38,29 @@ class BottomNavBar extends StatelessWidget {
               isSelected: selectedIndex == 1,
               onTap: () => onItemSelected(1),
             ),
-            const SizedBox(width: 48), // Space for FAB
             _NavItem(
-              icon: Icons.monetization_on,
-              label: 'Deals',
+              icon: Icons.business,
+              label: 'Company',
               isSelected: selectedIndex == 2,
               onTap: () => onItemSelected(2),
             ),
             _NavItem(
-              icon: Icons.check_circle,
-              label: 'Tasks',
+              icon: Icons.monetization_on,
+              label: 'Deals',
               isSelected: selectedIndex == 3,
               onTap: () => onItemSelected(3),
             ),
             _NavItem(
-              icon: Icons.settings,
-              label: 'Settings',
+              icon: Icons.check_circle,
+              label: 'Tasks',
               isSelected: selectedIndex == 4,
               onTap: () => onItemSelected(4),
+            ),
+            _NavItem(
+              icon: Icons.settings,
+              label: 'Settings',
+              isSelected: selectedIndex == 5,
+              onTap: () => onItemSelected(5),
             ),
           ],
         ),
@@ -79,7 +84,8 @@ class _NavItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = isSelected ? AppTheme.primary : Theme.of(context).iconTheme.color;
+    final color =
+        isSelected ? AppTheme.darkBase : Theme.of(context).iconTheme.color;
     return InkWell(
       onTap: onTap,
       child: SizedBox(
@@ -99,7 +105,7 @@ class _NavItem extends StatelessWidget {
                       width: 4,
                       height: 4,
                       decoration: const BoxDecoration(
-                        color: AppTheme.primary,
+                        color: AppTheme.darkBase,
                         shape: BoxShape.circle,
                       ),
                     ),
