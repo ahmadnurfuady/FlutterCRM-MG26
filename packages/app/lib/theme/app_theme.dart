@@ -24,66 +24,96 @@ class AppTheme {
   static const Color danger = Color(0xFFEC4848);
   static const Color warning = Color(0xFFECB213);
 
+  static const Color fecbuk = Color(0xFF3B5998); // fecbuk
+  static const Color white = Color(0xFFFFFFFF);
+
+  static const Color red = Color(0xFFD34053);
+  static const Color darkRed = Color(0xFF330405);
+  static const Color green = Color(0xFF219653);
+  static const Color goodGreen = Color(0xFF10B981);
+  static const Color yellow = Color(0xFFFFA70B);
+  static const Color orange = Color(0xFFB93510);
+
+  static const Color darkBase = Color(0xFF1C2434);
+  static const Color lightBase = Color(0xFFEFF1F6);
+  static const Color darkHover = Color(0xFF333848);
+
+  static const Color subText = Color(0xFF64728B);
+  static const Color outline = Color(0xFFD6DAE5);
+  static const Color evenRow = Color(0xFFF9F9FD);
+  static const Color coolGreyBg = Color(0xFFE5E7EB);
+
+  static const Color deferredColor = Color(0xFF2E334A);
+  static const Color progressColor = Color(0xFF525E75);
+  static const Color waitingColor = Color(0xFF404460);
+  static const Color pipeline = Color(0xFFF4F5FB);
+  static const Color points = Color(0xFF64788B);
+
+  /*
+  ==========================================
+  🌙 DARK THEME
+  ==========================================
+  */
 
   static ThemeData get darkTheme {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.dark,
-      scaffoldBackgroundColor: backgroundDark,
+      scaffoldBackgroundColor: darkBase,
       colorScheme: const ColorScheme.dark(
         primary: primary,
-        surface: surfaceDark,
+        surface: darkBase,
         onSurface: Colors.white,
-        background: backgroundDark,
+        background: darkBase,
         onBackground: Colors.white,
       ),
-      textTheme: GoogleFonts.interTextTheme(ThemeData.dark().textTheme).apply(
-        bodyColor: Colors.white,
-        displayColor: Colors.white,
-      ),
-      iconTheme: const IconThemeData(
-        color: slate400,
-      ),
-      dividerColor: slate800,
+      textTheme: GoogleFonts.montserratTextTheme(
+        ThemeData.dark().textTheme,
+      ).apply(bodyColor: Colors.white, displayColor: Colors.white),
+      iconTheme: const IconThemeData(color: subText),
+      dividerColor: darkHover,
       cardTheme: CardThemeData(
-        color: surfaceDark,
+        color: darkHover,
         elevation: 0,
         shape: RoundedRectangleBorder(
-           borderRadius: BorderRadius.circular(12),
-           side: const BorderSide(color: slate800, width: 1),
+          borderRadius: BorderRadius.circular(16),
+          side: const BorderSide(color: darkHover),
         ),
-      )
+      ),
     );
   }
+
+  /*
+  ==========================================
+  ☀️ LIGHT THEME
+  ==========================================
+  */
 
   static ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.light,
-      scaffoldBackgroundColor: backgroundLight,
+      scaffoldBackgroundColor: lightBase,
       colorScheme: const ColorScheme.light(
         primary: primary,
-        surface: Colors.white,
-        onSurface: slate900,
-        background: backgroundLight,
-        onBackground: slate900,
+        surface: white,
+        onSurface: darkBase,
+        background: lightBase,
+        onBackground: darkBase,
       ),
-      textTheme: GoogleFonts.interTextTheme(ThemeData.light().textTheme).apply(
-        bodyColor: slate900,
-        displayColor: slate900,
-      ),
-      iconTheme: const IconThemeData(
-        color: slate500,
-      ),
-      dividerColor: slate200,
+      textTheme: GoogleFonts.montserratTextTheme(
+        ThemeData.light().textTheme,
+      ).apply(bodyColor: darkBase, displayColor: darkBase),
+      iconTheme: const IconThemeData(color: subText),
+      dividerColor: outline,
       cardTheme: CardThemeData(
-        color: Colors.white,
+        color: white,
         elevation: 0,
         shape: RoundedRectangleBorder(
-           borderRadius: BorderRadius.circular(12),
-           side: const BorderSide(color: slate200, width: 1),
+          borderRadius: BorderRadius.circular(16),
+          side: const BorderSide(color: outline),
         ),
-      )
+      ),
     );
   }
 }

@@ -16,7 +16,7 @@ class CRMApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.dark, // Defaulting to dark as per screenshot
+      themeMode: ThemeMode.light, // Defaulting to dark as per screenshot
       home: const MainScreen(),
     );
   }
