@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:crm_dashboard/theme/app_theme.dart';
-import 'package:crm_dashboard/screens/main_screen.dart';
+import 'package:crm_dashboard/screens/login_screen.dart';
 
 void main() {
   runApp(const CRMApp());
@@ -16,8 +16,8 @@ class CRMApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.light, // Defaulting to dark as per screenshot
-      home: const MainScreen(),
+      themeMode: ThemeMode.light, // Defaulting to light as per Vue login page
+      home: const LoginScreen(),
     );
   }
 }

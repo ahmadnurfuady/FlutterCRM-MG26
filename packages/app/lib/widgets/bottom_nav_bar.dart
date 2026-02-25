@@ -15,7 +15,7 @@ class BottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Theme.of(context).scaffoldBackgroundColor.withOpacity(0.9),
+        color: Theme.of(context).scaffoldBackgroundColor.withValues(alpha: 0.9),
         border: Border(top: BorderSide(color: Theme.of(context).dividerColor)),
       ),
       child: BottomAppBar(
@@ -26,36 +26,53 @@ class BottomNavBar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            _NavItem(
-              icon: Icons.dashboard,
-              label: 'Dashboard',
-              isSelected: selectedIndex == 0,
-              onTap: () => onItemSelected(0),
+            Expanded(
+              child: _NavItem(
+                icon: Icons.dashboard,
+                label: 'Dashboard',
+                isSelected: selectedIndex == 0,
+                onTap: () => onItemSelected(0),
+              ),
             ),
-            _NavItem(
-              icon: Icons.people,
-              label: 'Contacts',
-              isSelected: selectedIndex == 1,
-              onTap: () => onItemSelected(1),
+            Expanded(
+              child: _NavItem(
+                icon: Icons.people,
+                label: 'Contacts',
+                isSelected: selectedIndex == 1,
+                onTap: () => onItemSelected(1),
+              ),
             ),
-            const SizedBox(width: 48), // Space for FAB
-            _NavItem(
-              icon: Icons.monetization_on,
-              label: 'Deals',
-              isSelected: selectedIndex == 2,
-              onTap: () => onItemSelected(2),
+            Expanded(
+              child: _NavItem(
+                icon: Icons.business,
+                label: 'Companies',
+                isSelected: selectedIndex == 2,
+                onTap: () => onItemSelected(2),
+              ),
             ),
-            _NavItem(
-              icon: Icons.check_circle,
-              label: 'Tasks',
-              isSelected: selectedIndex == 3,
-              onTap: () => onItemSelected(3),
+            Expanded(
+              child: _NavItem(
+                icon: Icons.monetization_on,
+                label: 'Deals',
+                isSelected: selectedIndex == 3,
+                onTap: () => onItemSelected(3),
+              ),
             ),
-            _NavItem(
-              icon: Icons.settings,
-              label: 'Settings',
-              isSelected: selectedIndex == 4,
-              onTap: () => onItemSelected(4),
+            Expanded(
+              child: _NavItem(
+                icon: Icons.check_circle,
+                label: 'Tasks',
+                isSelected: selectedIndex == 4,
+                onTap: () => onItemSelected(4),
+              ),
+            ),
+            Expanded(
+              child: _NavItem(
+                icon: Icons.settings,
+                label: 'Settings',
+                isSelected: selectedIndex == 5,
+                onTap: () => onItemSelected(5),
+              ),
             ),
           ],
         ),
@@ -79,44 +96,36 @@ class _NavItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = isSelected ? AppTheme.primary : Theme.of(context).iconTheme.color;
+    final color =
+        isSelected ? AppTheme.primary : Theme.of(context).iconTheme.color;
     return InkWell(
       onTap: onTap,
-      child: SizedBox(
-        width: 64,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Stack(
-              alignment: Alignment.center,
-              clipBehavior: Clip.none,
-              children: [
-                Icon(icon, color: color, size: 28),
-                if (isSelected)
-                  Positioned(
-                    bottom: -8,
-                    child: Container(
-                      width: 4,
-                      height: 4,
-                      decoration: const BoxDecoration(
-                        color: AppTheme.primary,
-                        shape: BoxShape.circle,
-                      ),
-                    ),
-                  )
-              ],
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
+      hoverColor: Colors.transparent,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+            decoration: BoxDecoration(
+              color: isSelected
+                  ? AppTheme.primary.withValues(alpha: 0.1)
+                  : Colors.transparent,
+              borderRadius: BorderRadius.circular(16),
             ),
-            const SizedBox(height: 4),
-            Text(
-              label,
-              style: TextStyle(
-                color: color,
-                fontSize: 10,
-                fontWeight: FontWeight.w500,
-              ),
+            child: Icon(icon, color: color, size: 24),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            label,
+            style: TextStyle(
+              color: color,
+              fontSize: 10,
+              fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
