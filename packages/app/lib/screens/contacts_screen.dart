@@ -7,6 +7,8 @@ import 'package:crm_dashboard/widgets/contacts/contacts_header.dart';
 import 'package:crm_dashboard/widgets/contacts/search_and_filter.dart';
 import 'package:crm_dashboard/widgets/contacts/contact_list_item.dart';
 
+import 'package:crm_dashboard/widgets/contacts/add_contact_form.dart';
+
 class ContactsScreen extends StatefulWidget {
   const ContactsScreen({super.key});
 
@@ -34,6 +36,15 @@ class _ContactsScreenState extends State<ContactsScreen> {
     return sortedGrouped;
   }
 
+  void _showAddContactForm() {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) => const AddContactForm(),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final contacts = groupedContacts;
@@ -45,7 +56,7 @@ class _ContactsScreenState extends State<ContactsScreen> {
           children: [
             ContactsHeader(
               count: mockContacts.length,
-              onAddPressed: () {},
+              onAddPressed: _showAddContactForm,
             ),
             const SearchAndFilter(),
             const SizedBox(height: 16),
