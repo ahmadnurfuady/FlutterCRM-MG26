@@ -1,0 +1,60 @@
+import 'package:crm_dashboard/models/company.dart';
+
+final List<Company> mockCompanies = [
+  Company(
+    id: '1',
+    name: 'Google',
+    industry: 'Technology',
+    city: 'Mountain View',
+    country: 'USA',
+    employeeCount: 150000,
+  ),
+  Company(
+    id: '2',
+    name: 'Microsoft',
+    industry: 'Technology',
+    city: 'Redmond',
+    country: 'USA',
+    employeeCount: 180000,
+  ),
+  Company(
+    id: '3',
+    name: 'Amazon',
+    industry: 'E-commerce',
+    city: 'Seattle',
+    country: 'USA',
+    employeeCount: 1300000,
+  ),
+  Company(
+    id: '4',
+    name: 'Apple',
+    industry: 'Technology',
+    city: 'Cupertino',
+    country: 'USA',
+    employeeCount: 160000,
+  ),
+  Company(
+    id: '5',
+    name: 'Facebook (Meta)',
+    industry: 'Social Media',
+    city: 'Menlo Park',
+    country: 'USA',
+    employeeCount: 87000,
+  ),
+  Company(
+    id: '6',
+    name: 'Tokopedia',
+    industry: 'E-commerce',
+    city: 'Jakarta',
+    country: 'Indonesia',
+    employeeCount: 7000,
+  ),
+  Company(
+    id: '7',
+    name: 'Gojek',
+    industry: 'Transportation',
+    city: 'Jakarta',
+    country: 'Indonesia',
+    employeeCount: 4000,
+  ),
+];
