@@ -26,7 +26,7 @@ class Summary extends StatelessWidget {
                   : 2.5), // Rasio Desktop/Tablet
           children: const [
             _SummaryCard(
-              icon: Icons.people_alt_rounded,
+              icon: Icons.people_outline,
               value: '18.6K',
               label: 'Total Contacts',
               percentage: '12%',
@@ -40,14 +40,14 @@ class Summary extends StatelessWidget {
               isUp: true,
             ),
             _SummaryCard(
-              icon: Icons.handshake_rounded,
+              icon: Icons.business_center_outlined,
               value: '852',
               label: 'Total Deals',
               percentage: '5%',
               isUp: false, // Contoh jika turun
             ),
             _SummaryCard(
-              icon: Icons.assignment_turned_in_rounded,
+              icon: Icons.assignment_late_outlined,
               value: '2.4K',
               label: 'Total Tasks',
               percentage: '18%',
