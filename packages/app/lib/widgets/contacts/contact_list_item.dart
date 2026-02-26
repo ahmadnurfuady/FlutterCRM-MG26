@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:crm_dashboard/models/contact.dart';
 import 'package:crm_dashboard/theme/app_theme.dart';
@@ -23,20 +22,19 @@ class ContactListItem extends StatelessWidget {
     }
 
     // Determine avatar background color
-     List<Color> gradientColors = [Colors.grey, Colors.grey];
+    List<Color> gradientColors = [Colors.grey, Colors.grey];
     if (contact.initials == 'AW') {
       gradientColors = [Colors.blue, Colors.indigo];
     } else if (contact.initials == 'BS') {
-       gradientColors = [Colors.purple, Colors.pink];
+      gradientColors = [Colors.purple, Colors.pink];
     } else if (contact.initials == 'CK') {
-       gradientColors = [Colors.amber, Colors.orange];
+      gradientColors = [Colors.amber, Colors.orange];
     } else if (contact.initials == 'BW') {
       // Special case for BW in design - solid background with border
       gradientColors = [const Color(0xFF233040), const Color(0xFF233040)];
     } else if (contact.initials == 'CL') {
-       gradientColors = [AppTheme.slate200, AppTheme.slate200];
+      gradientColors = [AppTheme.slate200, AppTheme.slate200];
     }
-
 
     return InkWell(
       onTap: () {
@@ -72,19 +70,31 @@ class ContactListItem extends StatelessWidget {
                     height: 48,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      gradient: contact.initials == 'BW' || contact.initials == 'CL' ? null : LinearGradient(
-                        colors: gradientColors,
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                      ),
-                      color: contact.initials == 'BW' || contact.initials == 'CL' ? gradientColors[0] : null,
-                      border: contact.initials == 'BW' ? Border.all(color: AppTheme.slate800) : null,
+                      gradient:
+                          contact.initials == 'BW' || contact.initials == 'CL'
+                              ? null
+                              : LinearGradient(
+                                  colors: gradientColors,
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                ),
+                      color:
+                          contact.initials == 'BW' || contact.initials == 'CL'
+                              ? gradientColors[0]
+                              : null,
+                      border: contact.initials == 'BW'
+                          ? Border.all(color: AppTheme.slate800)
+                          : null,
                     ),
                     child: Center(
                       child: Text(
                         contact.initials ?? '',
                         style: TextStyle(
-                          color: contact.initials == 'CL' ? AppTheme.slate500 : (contact.initials == 'BW' ? AppTheme.slate400 : Colors.white),
+                          color: contact.initials == 'CL'
+                              ? AppTheme.slate500
+                              : (contact.initials == 'BW'
+                                  ? AppTheme.slate400
+                                  : Colors.white),
                           fontWeight: FontWeight.w600,
                           fontSize: 18,
                         ),
@@ -125,7 +135,7 @@ class ContactListItem extends StatelessWidget {
                         contact.name,
                         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                               fontWeight: FontWeight.w600,
-                              color: Theme.of(context).colorScheme.onBackground,
+                              color: Theme.of(context).colorScheme.onSurface,
                             ),
                       ),
                       Text(
@@ -149,12 +159,13 @@ class ContactListItem extends StatelessWidget {
                 ],
               ),
             ),
-             const SizedBox(width: 8),
-             Icon(
-               Icons.chevron_right,
-               color: AppTheme.slate200, // Light theme color, might need adjustment for dark
-               // Using logic to check brightness for better adaptability could be good, but following design exact color for now
-             ),
+            const SizedBox(width: 8),
+            const Icon(
+              Icons.chevron_right,
+              color: AppTheme
+                  .slate200, // Light theme color, might need adjustment for dark
+              // Using logic to check brightness for better adaptability could be good, but following design exact color for now
+            ),
           ],
         ),
       ),

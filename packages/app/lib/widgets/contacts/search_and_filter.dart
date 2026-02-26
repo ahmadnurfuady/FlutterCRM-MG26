@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:crm_dashboard/theme/app_theme.dart';
 
@@ -15,16 +14,17 @@ class SearchAndFilter extends StatelessWidget {
           child: TextField(
             decoration: InputDecoration(
               hintText: 'Search name, company, or email...',
-              hintStyle: TextStyle(
+              hintStyle: const TextStyle(
                 color: AppTheme.slate500,
                 fontSize: 14,
               ),
-              prefixIcon: Icon(
+              prefixIcon: const Icon(
                 Icons.search,
                 color: AppTheme.slate400,
               ),
               filled: true,
-              fillColor: Theme.of(context).cardColor, // Using card color to approximate slate-100/surface-dark
+              fillColor: Theme.of(context)
+                  .cardColor, // Using card color to approximate slate-100/surface-dark
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
                 borderSide: BorderSide.none,
@@ -43,17 +43,20 @@ class SearchAndFilter extends StatelessWidget {
               _FilterChip(
                 label: 'Filter',
                 icon: Icons.filter_list,
-                backgroundColor: Theme.of(context).dividerColor.withOpacity(0.5), // Approximate slate-200
-                textColor: Theme.of(context).textTheme.bodyMedium?.color ?? AppTheme.slate800,
+                backgroundColor: Theme.of(context)
+                    .dividerColor
+                    .withValues(alpha: 0.5), // Approximate slate-200
+                textColor: Theme.of(context).textTheme.bodyMedium?.color ??
+                    AppTheme.slate800,
               ),
               const SizedBox(width: 12),
               _FilterChip(
                 label: 'Status: Active',
                 icon: Icons.close,
                 iconRight: true,
-                backgroundColor: AppTheme.primary.withOpacity(0.1),
+                backgroundColor: AppTheme.primary.withValues(alpha: 0.1),
                 textColor: AppTheme.primary,
-                borderColor: AppTheme.primary.withOpacity(0.2),
+                borderColor: AppTheme.primary.withValues(alpha: 0.2),
               ),
               const SizedBox(width: 12),
               _FilterChip(
@@ -91,7 +94,7 @@ class _FilterChip extends StatelessWidget {
 
   const _FilterChip({
     required this.label,
-     this.icon,
+    this.icon,
     this.iconRight = false,
     required this.backgroundColor,
     required this.textColor,

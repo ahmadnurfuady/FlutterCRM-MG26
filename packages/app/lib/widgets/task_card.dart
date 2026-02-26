@@ -24,7 +24,6 @@ class TaskCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final isDark = theme.brightness == Brightness.dark;
 
     Color borderColor = Colors.transparent;
     Color timeColor = theme.iconTheme.color!;
@@ -33,7 +32,7 @@ class TaskCard extends StatelessWidget {
 
     if (status == TaskStatus.overdue) {
       borderColor = AppTheme.danger;
-      updateBadgeColor = AppTheme.danger.withOpacity(0.1);
+      updateBadgeColor = AppTheme.danger.withValues(alpha: 0.1);
       updateBadgeTextColor = AppTheme.danger;
     } else if (status == TaskStatus.today) {
       borderColor = AppTheme.warning;
@@ -52,13 +51,13 @@ class TaskCard extends StatelessWidget {
                 : borderColor,
             width: 4,
           ),
-          top: BorderSide(color: theme.dividerColor.withOpacity(0.5)),
-          right: BorderSide(color: theme.dividerColor.withOpacity(0.5)),
-          bottom: BorderSide(color: theme.dividerColor.withOpacity(0.5)),
+          top: BorderSide(color: theme.dividerColor.withValues(alpha: 0.5)),
+          right: BorderSide(color: theme.dividerColor.withValues(alpha: 0.5)),
+          bottom: BorderSide(color: theme.dividerColor.withValues(alpha: 0.5)),
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 4,
             offset: const Offset(0, 2),
           ),
@@ -96,7 +95,8 @@ class TaskCard extends StatelessWidget {
                     title,
                     style: theme.textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.w600,
-                      decoration: isCompleted ? TextDecoration.lineThrough : null,
+                      decoration:
+                          isCompleted ? TextDecoration.lineThrough : null,
                       color: isCompleted ? theme.disabledColor : null,
                     ),
                   ),
@@ -104,7 +104,8 @@ class TaskCard extends StatelessWidget {
                   if (!isCompleted) ...[
                     Row(
                       children: [
-                        Icon(Icons.person, size: 16, color: theme.iconTheme.color),
+                        Icon(Icons.person,
+                            size: 16, color: theme.iconTheme.color),
                         const SizedBox(width: 4),
                         Text(
                           assignee,
@@ -117,7 +118,8 @@ class TaskCard extends StatelessWidget {
                     const SizedBox(height: 8),
                     if (updateBadgeColor != null)
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 2),
                         decoration: BoxDecoration(
                           color: updateBadgeColor,
                           borderRadius: BorderRadius.circular(4),
@@ -154,12 +156,12 @@ class TaskCard extends StatelessWidget {
                 backgroundImage: NetworkImage(avatarUrl!),
               )
             else if (!isCompleted)
-               IconButton(
-                 icon: Icon(Icons.more_vert, color: theme.iconTheme.color),
-                 onPressed: () {},
-                 padding: EdgeInsets.zero,
-                 constraints: const BoxConstraints(),
-               )
+              IconButton(
+                icon: Icon(Icons.more_vert, color: theme.iconTheme.color),
+                onPressed: () {},
+                padding: EdgeInsets.zero,
+                constraints: const BoxConstraints(),
+              )
           ],
         ),
       ),

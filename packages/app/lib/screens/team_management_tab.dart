@@ -40,11 +40,14 @@ class TeamManagementTab extends StatelessWidget {
                 ElevatedButton.icon(
                   onPressed: () {},
                   icon: const Icon(Icons.add, size: 18, color: Colors.white),
-                  label: const Text('Invite', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                  label: const Text('Invite',
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold)),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppTheme.primary,
                     elevation: 0,
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 12),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
@@ -64,89 +67,104 @@ class TeamManagementTab extends StatelessWidget {
             ),
             child: Column(
               children: [
-                _TeamMemberTile(
+                const _TeamMemberTile(
                   name: 'Budi Santoso',
                   email: 'budi.s@rework.com',
                   role: 'Admin',
-                  roleColor: Color(0xFFE9D5FF), 
-                  roleTextColor: Color(0xFF6B21A8), 
+                  roleColor: Color(0xFFE9D5FF),
+                  roleTextColor: Color(0xFF6B21A8),
                   roleBorderColor: Color(0xFFD8B4FE),
                   initials: 'BS',
                   initialsBg: Color(0xFFDBEAFE),
                   initialsColor: Color(0xFF2563EB),
                   isStar: true,
                 ),
-                Divider(height: 1, thickness: 1, color: Theme.of(context).dividerColor),
-                _TeamMemberTile(
+                Divider(
+                    height: 1,
+                    thickness: 1,
+                    color: Theme.of(context).dividerColor),
+                const _TeamMemberTile(
                   name: 'Andi Wijaya',
                   email: 'andi.w@rework.com',
                   role: 'Manager',
-                   roleColor: Color(0xFFDBEAFE), 
-                  roleTextColor: Color(0xFF1E40AF), 
+                  roleColor: Color(0xFFDBEAFE),
+                  roleTextColor: Color(0xFF1E40AF),
                   roleBorderColor: Color(0xFFBFDBFE),
                   initials: 'AW',
                   initialsBg: Color(0xFFD1FAE5),
                   initialsColor: Color(0xFF059669),
                 ),
-                Divider(height: 1, thickness: 1, color: Theme.of(context).dividerColor),
+                Divider(
+                    height: 1,
+                    thickness: 1,
+                    color: Theme.of(context).dividerColor),
                 _TeamMemberTile(
                   name: 'Siti Putri',
                   email: 'siti.putri@rework.com',
                   role: 'Sales',
-                  roleColor: Theme.of(context).brightness == Brightness.dark 
-                      ? Color(0xFF334155) // Dark mode slate
-                      : Color(0xFFF1F5F9), // Light mode slate
-                  roleTextColor: Theme.of(context).brightness == Brightness.dark 
-                      ? Color(0xFFCBD5E1) 
-                      : Color(0xFF475569),
-                  roleBorderColor: Theme.of(context).brightness == Brightness.dark 
-                      ? Color(0xFF475569) 
-                      : Color(0xFFE2E8F0),
+                  roleColor: Theme.of(context).brightness == Brightness.dark
+                      ? const Color(0xFF334155) // Dark mode slate
+                      : const Color(0xFFF1F5F9), // Light mode slate
+                  roleTextColor: Theme.of(context).brightness == Brightness.dark
+                      ? const Color(0xFFCBD5E1)
+                      : const Color(0xFF475569),
+                  roleBorderColor:
+                      Theme.of(context).brightness == Brightness.dark
+                          ? const Color(0xFF475569)
+                          : const Color(0xFFE2E8F0),
                   initials: 'SP',
-                  initialsBg: Color(0xFFFFEDD5),
-                  initialsColor: Color(0xFFEA580C),
+                  initialsBg: const Color(0xFFFFEDD5),
+                  initialsColor: const Color(0xFFEA580C),
                 ),
-                Divider(height: 1, thickness: 1, color: Theme.of(context).dividerColor),
+                Divider(
+                    height: 1,
+                    thickness: 1,
+                    color: Theme.of(context).dividerColor),
                 _TeamMemberTile(
                   name: 'Rian Diana',
                   email: 'rian.d@rework.com',
                   role: 'Sales',
-                  roleColor: Theme.of(context).brightness == Brightness.dark 
-                      ? Color(0xFF334155) 
-                      : Color(0xFFF1F5F9),
-                  roleTextColor: Theme.of(context).brightness == Brightness.dark 
-                      ? Color(0xFFCBD5E1) 
-                      : Color(0xFF475569),
-                  roleBorderColor: Theme.of(context).brightness == Brightness.dark 
-                      ? Color(0xFF475569) 
-                      : Color(0xFFE2E8F0),
+                  roleColor: Theme.of(context).brightness == Brightness.dark
+                      ? const Color(0xFF334155)
+                      : const Color(0xFFF1F5F9),
+                  roleTextColor: Theme.of(context).brightness == Brightness.dark
+                      ? const Color(0xFFCBD5E1)
+                      : const Color(0xFF475569),
+                  roleBorderColor:
+                      Theme.of(context).brightness == Brightness.dark
+                          ? const Color(0xFF475569)
+                          : const Color(0xFFE2E8F0),
                   initials: 'RD',
-                  initialsBg: Theme.of(context).brightness == Brightness.dark 
-                      ? Color(0xFF1F2937) 
-                      : Color(0xFFF3F4F6),
-                  initialsColor: Theme.of(context).brightness == Brightness.dark 
-                      ? Color(0xFF9CA3AF) 
-                      : Color(0xFF6B7280),
+                  initialsBg: Theme.of(context).brightness == Brightness.dark
+                      ? const Color(0xFF1F2937)
+                      : const Color(0xFFF3F4F6),
+                  initialsColor: Theme.of(context).brightness == Brightness.dark
+                      ? const Color(0xFF9CA3AF)
+                      : const Color(0xFF6B7280),
                   isOpacity: true,
                   status: 'Pending',
                 ),
-                Divider(height: 1, thickness: 1, color: Theme.of(context).dividerColor),
+                Divider(
+                    height: 1,
+                    thickness: 1,
+                    color: Theme.of(context).dividerColor),
                 _TeamMemberTile(
                   name: 'Dewi Kartika',
                   email: 'dewi.k@rework.com',
                   role: 'Sales',
-                  roleColor: Theme.of(context).brightness == Brightness.dark 
-                      ? Color(0xFF334155) 
-                      : Color(0xFFF1F5F9),
-                  roleTextColor: Theme.of(context).brightness == Brightness.dark 
-                      ? Color(0xFFCBD5E1) 
-                      : Color(0xFF475569),
-                  roleBorderColor: Theme.of(context).brightness == Brightness.dark 
-                      ? Color(0xFF475569) 
-                      : Color(0xFFE2E8F0),
+                  roleColor: Theme.of(context).brightness == Brightness.dark
+                      ? const Color(0xFF334155)
+                      : const Color(0xFFF1F5F9),
+                  roleTextColor: Theme.of(context).brightness == Brightness.dark
+                      ? const Color(0xFFCBD5E1)
+                      : const Color(0xFF475569),
+                  roleBorderColor:
+                      Theme.of(context).brightness == Brightness.dark
+                          ? const Color(0xFF475569)
+                          : const Color(0xFFE2E8F0),
                   initials: 'DK',
-                  initialsBg: Color(0xFFFCE7F3),
-                  initialsColor: Color(0xFFDB2777),
+                  initialsBg: const Color(0xFFFCE7F3),
+                  initialsColor: const Color(0xFFDB2777),
                 ),
               ],
             ),
@@ -158,19 +176,19 @@ class TeamManagementTab extends StatelessWidget {
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: Theme.of(context).brightness == Brightness.dark
-                  ? Color(0xFF172554).withOpacity(0.3)
-                  : Color(0xFFEFF6FF),
+                  ? const Color(0xFF172554).withValues(alpha: 0.3)
+                  : const Color(0xFFEFF6FF),
               borderRadius: BorderRadius.circular(12),
               border: Border.all(
                 color: Theme.of(context).brightness == Brightness.dark
-                    ? Color(0xFF1E3A8A).withOpacity(0.5)
-                    : Color(0xFFDBEAFE),
+                    ? const Color(0xFF1E3A8A).withValues(alpha: 0.5)
+                    : const Color(0xFFDBEAFE),
               ),
             ),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Icon(
+                const Icon(
                   Icons.info_outline,
                   color: AppTheme.primary,
                   size: 20,
@@ -184,18 +202,20 @@ class TeamManagementTab extends StatelessWidget {
                         'Team Plan Usage',
                         style: Theme.of(context).textTheme.titleSmall?.copyWith(
                               fontWeight: FontWeight.bold,
-                              color: Theme.of(context).brightness == Brightness.dark
-                                  ? Color(0xFFDBEAFE)
-                                  : Color(0xFF1E3A8A),
+                              color: Theme.of(context).brightness ==
+                                      Brightness.dark
+                                  ? const Color(0xFFDBEAFE)
+                                  : const Color(0xFF1E3A8A),
                             ),
                       ),
                       const SizedBox(height: 4),
                       Text(
                         'You have used 5 of 10 seats available in your current plan. Upgrade to Pro for unlimited team members.',
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                              color: Theme.of(context).brightness == Brightness.dark
-                                  ? Color(0xFF93C5FD)
-                                  : Color(0xFF1D4ED8),
+                              color: Theme.of(context).brightness ==
+                                      Brightness.dark
+                                  ? const Color(0xFF93C5FD)
+                                  : const Color(0xFF1D4ED8),
                               height: 1.5,
                             ),
                       ),
@@ -204,11 +224,12 @@ class TeamManagementTab extends StatelessWidget {
                         onTap: () {},
                         child: Text(
                           'Upgrade Plan',
-                          style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                color: AppTheme.primary,
-                                fontWeight: FontWeight.bold,
-                                decoration: TextDecoration.underline,
-                              ),
+                          style:
+                              Theme.of(context).textTheme.bodySmall?.copyWith(
+                                    color: AppTheme.primary,
+                                    fontWeight: FontWeight.bold,
+                                    decoration: TextDecoration.underline,
+                                  ),
                         ),
                       ),
                     ],
@@ -267,8 +288,8 @@ class _TeamMemberTile extends StatelessWidget {
                   width: 48,
                   height: 48,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).brightness == Brightness.dark 
-                        ? initialsBg.withOpacity(0.2) 
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? initialsBg.withValues(alpha: 0.2)
                         : initialsBg,
                     shape: BoxShape.circle,
                   ),
@@ -276,8 +297,8 @@ class _TeamMemberTile extends StatelessWidget {
                   child: Text(
                     initials,
                     style: TextStyle(
-                      color: Theme.of(context).brightness == Brightness.dark 
-                          ? initialsColor.withOpacity(0.8) 
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? initialsColor.withValues(alpha: 0.8)
                           : initialsColor,
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
@@ -297,12 +318,12 @@ class _TeamMemberTile extends StatelessWidget {
                       child: Container(
                         padding: const EdgeInsets.all(2),
                         decoration: BoxDecoration(
-                          color: Theme.of(context).brightness == Brightness.dark 
-                              ? Color(0xFF713F12).withOpacity(0.5) 
-                              : Color(0xFFFEF9C3),
+                          color: Theme.of(context).brightness == Brightness.dark
+                              ? const Color(0xFF713F12).withValues(alpha: 0.5)
+                              : const Color(0xFFFEF9C3),
                           shape: BoxShape.circle,
                         ),
-                        child: Icon(
+                        child: const Icon(
                           Icons.star,
                           size: 14,
                           color: Color(0xFFEAB308),
@@ -322,32 +343,36 @@ class _TeamMemberTile extends StatelessWidget {
                       Flexible(
                         child: Text(
                           name,
-                          style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                                fontWeight: FontWeight.bold,
-                              ),
+                          style:
+                              Theme.of(context).textTheme.titleSmall?.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                  ),
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
                       const SizedBox(width: 8),
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 2),
                         decoration: BoxDecoration(
-                          color: Theme.of(context).brightness == Brightness.dark 
-                              ? roleColor.withOpacity(0.2) 
+                          color: Theme.of(context).brightness == Brightness.dark
+                              ? roleColor.withValues(alpha: 0.2)
                               : roleColor,
                           borderRadius: BorderRadius.circular(4),
                           border: Border.all(
-                            color: Theme.of(context).brightness == Brightness.dark 
-                                ? roleBorderColor.withOpacity(0.3) 
-                                : roleBorderColor,
+                            color:
+                                Theme.of(context).brightness == Brightness.dark
+                                    ? roleBorderColor.withValues(alpha: 0.3)
+                                    : roleBorderColor,
                           ),
                         ),
                         child: Text(
                           role,
                           style: TextStyle(
-                            color: Theme.of(context).brightness == Brightness.dark 
-                                ? roleTextColor 
-                                : roleTextColor,
+                            color:
+                                Theme.of(context).brightness == Brightness.dark
+                                    ? roleTextColor
+                                    : roleTextColor,
                             fontSize: 10,
                             fontWeight: FontWeight.w600,
                           ),
@@ -355,20 +380,22 @@ class _TeamMemberTile extends StatelessWidget {
                       ),
                       if (status != null) ...[
                         const Spacer(),
-                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 6, vertical: 2),
                           decoration: BoxDecoration(
-                            color: Theme.of(context).brightness == Brightness.dark 
-                                ? Color(0xFFFFF7ED).withOpacity(0.1) 
-                                : Color(0xFFFFF7ED),
+                            color: Theme.of(context).brightness ==
+                                    Brightness.dark
+                                ? const Color(0xFFFFF7ED).withValues(alpha: 0.1)
+                                : const Color(0xFFFFF7ED),
                             borderRadius: BorderRadius.circular(4),
                             border: Border.all(
-                              color: Color(0xFFFFE4E6),
+                              color: const Color(0xFFFFE4E6),
                             ),
                           ),
                           child: Text(
                             status!,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Color(0xFFF97316),
                               fontSize: 10,
                               fontWeight: FontWeight.w600,
@@ -392,14 +419,14 @@ class _TeamMemberTile extends StatelessWidget {
             ),
             if (status == null)
               IconButton(
-                icon: Icon(Icons.more_vert, color: AppTheme.slate400),
+                icon: const Icon(Icons.more_vert, color: AppTheme.slate400),
                 onPressed: () {},
                 padding: EdgeInsets.zero,
                 constraints: const BoxConstraints(),
               )
-            else 
-               IconButton(
-                icon: Icon(Icons.more_vert, color: AppTheme.slate400),
+            else
+              IconButton(
+                icon: const Icon(Icons.more_vert, color: AppTheme.slate400),
                 onPressed: () {},
                 padding: EdgeInsets.zero,
                 constraints: const BoxConstraints(),

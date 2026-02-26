@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:crm_dashboard/theme/app_theme.dart';
 
@@ -24,7 +23,7 @@ class ContactsHeader extends StatelessWidget {
               text: 'Contacts ',
               style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                     fontWeight: FontWeight.bold,
-                    color: Theme.of(context).colorScheme.onBackground,
+                    color: Theme.of(context).colorScheme.onSurface,
                   ),
               children: [
                 TextSpan(
@@ -45,7 +44,7 @@ class ContactsHeader extends StatelessWidget {
               shape: const CircleBorder(),
               padding: const EdgeInsets.all(12),
               elevation: 4,
-              shadowColor: AppTheme.primary.withOpacity(0.4),
+              shadowColor: AppTheme.primary.withValues(alpha: 0.4),
             ),
             child: const Icon(Icons.add, size: 24),
           ),

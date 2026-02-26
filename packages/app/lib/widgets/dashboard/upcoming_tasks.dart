@@ -15,8 +15,8 @@ class UpcomingTasks extends StatelessWidget {
             Text(
               'Upcoming Tasks',
               style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
+                    fontWeight: FontWeight.bold,
+                  ),
             ),
             TextButton(
               onPressed: () {},
@@ -76,7 +76,7 @@ class _TaskItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    
+
     return Opacity(
       opacity: isDone ? 0.75 : 1.0,
       child: Container(
@@ -94,7 +94,9 @@ class _TaskItem extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(6),
                 border: Border.all(
-                  color: isDone ? AppTheme.primary : theme.iconTheme.color!.withOpacity(0.5),
+                  color: isDone
+                      ? AppTheme.primary
+                      : theme.iconTheme.color!.withValues(alpha: 0.5),
                   width: 1.5,
                 ),
                 color: isDone ? AppTheme.primary : Colors.transparent,
@@ -113,7 +115,9 @@ class _TaskItem extends StatelessWidget {
                     style: theme.textTheme.bodyMedium?.copyWith(
                       fontWeight: FontWeight.w500,
                       decoration: isDone ? TextDecoration.lineThrough : null,
-                      color: isDone ? theme.iconTheme.color : theme.textTheme.bodyMedium?.color,
+                      color: isDone
+                          ? theme.iconTheme.color
+                          : theme.textTheme.bodyMedium?.color,
                     ),
                   ),
                   const SizedBox(height: 2),
@@ -130,9 +134,10 @@ class _TaskItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                   decoration: BoxDecoration(
-                    color: priorityColor.withOpacity(0.1),
+                    color: priorityColor.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(4),
                   ),
                   child: Text(

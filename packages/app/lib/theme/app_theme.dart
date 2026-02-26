@@ -64,8 +64,6 @@ class AppTheme {
         primary: primary,
         surface: darkBase,
         onSurface: Colors.white,
-        background: darkBase,
-        onBackground: Colors.white,
       ),
       textTheme: GoogleFonts.montserratTextTheme(
         ThemeData.dark().textTheme,
@@ -98,8 +96,6 @@ class AppTheme {
         primary: primary,
         surface: white,
         onSurface: darkBase,
-        background: lightBase,
-        onBackground: darkBase,
       ),
       textTheme: GoogleFonts.montserratTextTheme(
         ThemeData.light().textTheme,

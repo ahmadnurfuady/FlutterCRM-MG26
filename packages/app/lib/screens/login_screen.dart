@@ -293,10 +293,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                   fontSize: 14,
                                   color: Colors.blueGrey.shade400,
                                 ),
-                                children: [
+                                children: const [
                                   TextSpan(
                                     text: 'Sign Up',
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontSize: 14,
                                       color: Color(0xFF1C2434),
                                       fontWeight: FontWeight.bold,

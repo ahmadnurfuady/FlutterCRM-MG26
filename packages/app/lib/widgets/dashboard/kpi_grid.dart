@@ -21,7 +21,7 @@ class KPIGrid extends StatelessWidget {
           change: '12.5%',
           isPositive: true,
           iconColor: AppTheme.primary,
-          iconBgColor: AppTheme.primary.withOpacity(0.1),
+          iconBgColor: AppTheme.primary.withValues(alpha: 0.1),
         ),
         _KPICard(
           title: 'New Leads',
@@ -30,7 +30,7 @@ class KPIGrid extends StatelessWidget {
           change: '8.3%',
           isPositive: true,
           iconColor: AppTheme.indigo500,
-          iconBgColor: AppTheme.indigo500.withOpacity(0.1),
+          iconBgColor: AppTheme.indigo500.withValues(alpha: 0.1),
         ),
         _KPICard(
           title: 'Deals Won',
@@ -39,7 +39,7 @@ class KPIGrid extends StatelessWidget {
           change: '2.1%',
           isPositive: false,
           iconColor: AppTheme.orange500,
-          iconBgColor: AppTheme.orange500.withOpacity(0.1),
+          iconBgColor: AppTheme.orange500.withValues(alpha: 0.1),
         ),
         _KPICard(
           title: 'Conv. Rate',
@@ -48,7 +48,7 @@ class KPIGrid extends StatelessWidget {
           change: '3.7%',
           isPositive: true,
           iconColor: AppTheme.teal500,
-          iconBgColor: AppTheme.teal500.withOpacity(0.1),
+          iconBgColor: AppTheme.teal500.withValues(alpha: 0.1),
         ),
       ],
     );
@@ -77,7 +77,6 @@ class _KPICard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final isDark = theme.brightness == Brightness.dark;
 
     return Container(
       padding: const EdgeInsets.all(16),
@@ -106,8 +105,8 @@ class _KPICard extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
                   color: isPositive
-                      ? AppTheme.emerald500.withOpacity(0.1)
-                      : AppTheme.rose500.withOpacity(0.1),
+                      ? AppTheme.emerald500.withValues(alpha: 0.1)
+                      : AppTheme.rose500.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Row(
@@ -115,7 +114,8 @@ class _KPICard extends StatelessWidget {
                     Icon(
                       isPositive ? Icons.arrow_upward : Icons.arrow_downward,
                       size: 10,
-                      color: isPositive ? AppTheme.emerald500 : AppTheme.rose500,
+                      color:
+                          isPositive ? AppTheme.emerald500 : AppTheme.rose500,
                     ),
                     const SizedBox(width: 4),
                     Text(
@@ -123,7 +123,8 @@ class _KPICard extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 10,
                         fontWeight: FontWeight.bold,
-                        color: isPositive ? AppTheme.emerald500 : AppTheme.rose500,
+                        color:
+                            isPositive ? AppTheme.emerald500 : AppTheme.rose500,
                       ),
                     ),
                   ],

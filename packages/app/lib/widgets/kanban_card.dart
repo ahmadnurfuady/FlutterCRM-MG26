@@ -35,11 +35,13 @@ class KanbanCard extends StatelessWidget {
         color: Theme.of(context).cardTheme.color,
         borderRadius: BorderRadius.circular(8), // rounded-lg
         border: Border.all(
-          color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0), // slate-700 : slate-200 (approx)
+          color: isDark
+              ? const Color(0xFF334155)
+              : const Color(0xFFE2E8F0), // slate-700 : slate-200 (approx)
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 2,
             offset: const Offset(0, 1),
           ),
@@ -57,9 +59,9 @@ class KanbanCard extends StatelessWidget {
                 child: Text(
                   title,
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    fontWeight: FontWeight.w600,
-                    // Group hover effect simulation (not perfect in mobile but visualizing intent)
-                  ),
+                        fontWeight: FontWeight.w600,
+                        // Group hover effect simulation (not perfect in mobile but visualizing intent)
+                      ),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -77,9 +79,9 @@ class KanbanCard extends StatelessWidget {
           Text(
             amount,
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
-              fontWeight: FontWeight.bold,
-              fontSize: 18,
-            ),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
           ),
           const SizedBox(height: 12),
           // Owner
@@ -113,8 +115,8 @@ class KanbanCard extends StatelessWidget {
               Text(
                 ownerName,
                 style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  color: isDark ? AppTheme.slate400 : AppTheme.slate500,
-                ),
+                      color: isDark ? AppTheme.slate400 : AppTheme.slate500,
+                    ),
               ),
             ],
           ),
@@ -126,7 +128,9 @@ class KanbanCard extends StatelessWidget {
                 child: Container(
                   height: 6,
                   decoration: BoxDecoration(
-                    color: isDark ? const Color(0xFF374151) : const Color(0xFFF3F4F6), // gray-700 : gray-100
+                    color: isDark
+                        ? const Color(0xFF374151)
+                        : const Color(0xFFF3F4F6), // gray-700 : gray-100
                     borderRadius: BorderRadius.circular(9999),
                   ),
                   child: FractionallySizedBox(

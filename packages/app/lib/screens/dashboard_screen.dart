@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:crm_dashboard/widgets/header_section.dart';
-import 'package:crm_dashboard/widgets/kpi_grid.dart';
-import 'package:crm_dashboard/widgets/upcoming_tasks.dart';
-import 'package:crm_dashboard/widgets/revenue_chart.dart';
+import 'package:crm_dashboard/widgets/dashboard/header_section.dart';
+import 'package:crm_dashboard/widgets/dashboard/kpi_grid.dart';
+import 'package:crm_dashboard/widgets/dashboard/upcoming_tasks.dart';
+import 'package:crm_dashboard/widgets/dashboard/revenue_chart.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});

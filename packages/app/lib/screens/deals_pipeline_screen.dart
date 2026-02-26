@@ -67,8 +67,8 @@ class DealsPipelineScreen extends StatelessWidget {
             count: 3,
             potential: 'Rp 120jt',
             color: Colors.blue.shade400,
-            cards: [
-              const KanbanCard(
+            cards: const [
+              KanbanCard(
                 title: 'ERP Implementation',
                 amount: 'Rp 100jt',
                 ownerName: 'Budi Santoso',
@@ -77,11 +77,12 @@ class DealsPipelineScreen extends StatelessWidget {
                 probability: 0.1,
                 progressColor: Colors.blue,
               ),
-              const KanbanCard(
+              KanbanCard(
                 title: 'Consulting Q3',
                 amount: 'Rp 20jt',
                 ownerName: 'Sarah Wijaya',
-                ownerImage: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAAv76JmCxnFg6OSio-ObwzmzMw3mOxw9oYz384k5edIwVXjk4V9Hxxa_pbjRjIuyAdXVeNxre5zUy_HLC2DrGRYWiaSVD21T1BFOqdchHhGkVCEHoY8E9KWLkO_RU1X0tB9e5TJ5R-mAPe-zJ7gjtNQEmcmbqRUE3BuKkfTmTS9sGqQg7-DKl45bHWqIVQt9kayv0zxuEtORIZ5Ri1RM5pIQNiK9Rr3UUXSRWZD1yaawS7UafAZcjcoLg7xnrcyeHd-guWSbNUsfk',
+                ownerImage:
+                    'https://lh3.googleusercontent.com/aida-public/AB6AXuAAv76JmCxnFg6OSio-ObwzmzMw3mOxw9oYz384k5edIwVXjk4V9Hxxa_pbjRjIuyAdXVeNxre5zUy_HLC2DrGRYWiaSVD21T1BFOqdchHhGkVCEHoY8E9KWLkO_RU1X0tB9e5TJ5R-mAPe-zJ7gjtNQEmcmbqRUE3BuKkfTmTS9sGqQg7-DKl45bHWqIVQt9kayv0zxuEtORIZ5Ri1RM5pIQNiK9Rr3UUXSRWZD1yaawS7UafAZcjcoLg7xnrcyeHd-guWSbNUsfk',
                 probability: 0.15,
                 progressColor: Colors.blue,
               ),
@@ -94,8 +95,8 @@ class DealsPipelineScreen extends StatelessWidget {
             count: 5,
             potential: 'Rp 450jt',
             color: Colors.yellow.shade400,
-            cards: [
-              const KanbanCard(
+            cards: const [
+              KanbanCard(
                 title: 'Web Redesign',
                 amount: 'Rp 75jt',
                 ownerName: 'Andi',
@@ -104,15 +105,16 @@ class DealsPipelineScreen extends StatelessWidget {
                 probability: 0.6,
                 progressColor: Colors.yellow,
               ),
-              const KanbanCard(
+              KanbanCard(
                 title: 'Mobile App MVP',
                 amount: 'Rp 150jt',
                 ownerName: 'Siti Aminah',
-                ownerImage: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAzYmGoccoGKMjtyDbxE0MVAq04SSLpkrdIxYNEaRVuHYwU3o8hPQhTNa85O0x5LVc2s5-Vytw4wsUToplpWMelbujcIIEXCSvIJDeej9qQ_e5dFkZJnvfBGGRcFxZog6jSIsWO-szTw__MLoSCEAVZfIoQxFCjv3ArC-mJx0-edbMGxKBNuDDrDzI0jeol63gT-Ry_1K2PiCj0pbf_R1lTFziZOgkds3Ygttr5aeoW0dHKQMB4Teq39iIGBm3eqKMCoJuJKHn2gJc',
+                ownerImage:
+                    'https://lh3.googleusercontent.com/aida-public/AB6AXuAzYmGoccoGKMjtyDbxE0MVAq04SSLpkrdIxYNEaRVuHYwU3o8hPQhTNa85O0x5LVc2s5-Vytw4wsUToplpWMelbujcIIEXCSvIJDeej9qQ_e5dFkZJnvfBGGRcFxZog6jSIsWO-szTw__MLoSCEAVZfIoQxFCjv3ArC-mJx0-edbMGxKBNuDDrDzI0jeol63gT-Ry_1K2PiCj0pbf_R1lTFziZOgkds3Ygttr5aeoW0dHKQMB4Teq39iIGBm3eqKMCoJuJKHn2gJc',
                 probability: 0.4,
                 progressColor: Colors.yellow,
               ),
-              const KanbanCard(
+              KanbanCard(
                 title: 'CRM Integration',
                 amount: 'Rp 225jt',
                 ownerName: 'Tari Ramadhani',
@@ -126,33 +128,33 @@ class DealsPipelineScreen extends StatelessWidget {
           const SizedBox(width: 16),
           // Column 3: Negosiasi
           KanbanColumn(
-             title: 'Negosiasi',
-             count: 2,
-             potential: 'Rp 800jt',
-             color: Colors.green.shade400,
-             cards: [
-               const KanbanCard(
-                 title: 'Cloud Migration',
-                 amount: 'Rp 500jt',
-                 ownerName: 'John Doe',
-                 ownerImage: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBYhD2qSeFDwRQ5G5lT3D2NLvXglvygLLqWiC1GVnyCDeq-NIGtCUtMhvzww9RPy-tcvgp_kSXAv49lIKy1O2GTR3e2YDqxZlTHgB8nEb9QkDtPYn9Yog4ifJoC2A-nEKOHQCqVumiOQqjVOvkVj3p3qiEeRYYh0floFNbdGVKSB6utGlJelL66YKZuxZ9VXk10L7Vp68MjWlB02aFljqmLBIQZZnrumsuewy_uaBDfdU1ZMBxZPU6F9i8MfDdszLqoPK6wd201anM',
-                 probability: 0.9,
-                 progressColor: Colors.green,
-               ),
-               const KanbanCard(
-                 title: 'Maintenance Contract',
-                 amount: 'Rp 300jt',
-                 ownerName: 'PT Maju Jaya',
-                 ownerInitials: 'PT',
-                 ownerColor: Colors.orange,
-                 probability: 0.85,
-                 progressColor: Colors.green,
-               ),
-             ],
+            title: 'Negosiasi',
+            count: 2,
+            potential: 'Rp 800jt',
+            color: Colors.green.shade400,
+            cards: const [
+              KanbanCard(
+                title: 'Cloud Migration',
+                amount: 'Rp 500jt',
+                ownerName: 'John Doe',
+                ownerImage:
+                    'https://lh3.googleusercontent.com/aida-public/AB6AXuBYhD2qSeFDwRQ5G5lT3D2NLvXglvygLLqWiC1GVnyCDeq-NIGtCUtMhvzww9RPy-tcvgp_kSXAv49lIKy1O2GTR3e2YDqxZlTHgB8nEb9QkDtPYn9Yog4ifJoC2A-nEKOHQCqVumiOQqjVOvkVj3p3qiEeRYYh0floFNbdGVKSB6utGlJelL66YKZuxZ9VXk10L7Vp68MjWlB02aFljqmLBIQZZnrumsuewy_uaBDfdU1ZMBxZPU6F9i8MfDdszLqoPK6wd201anM',
+                probability: 0.9,
+                progressColor: Colors.green,
+              ),
+              KanbanCard(
+                title: 'Maintenance Contract',
+                amount: 'Rp 300jt',
+                ownerName: 'PT Maju Jaya',
+                ownerInitials: 'PT',
+                ownerColor: Colors.orange,
+                probability: 0.85,
+                progressColor: Colors.green,
+              ),
+            ],
           ),
         ],
       ),
-
     );
   }
 }
