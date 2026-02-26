@@ -58,33 +58,36 @@ class _CompaniesScreenState extends State<CompaniesScreen> {
             Expanded(
               child: CustomScrollView(
                 slivers: [
-                  for (var entry in companies.entries) ...[
-                    // Sticky Header (Huruf A, B, C...)
-                    SliverPersistentHeader(
-                      pinned: true,
-                      delegate: _SectionHeaderDelegate(entry.key),
-                    ),
-                    SliverList(
-                      delegate: SliverChildBuilderDelegate(
-                        (context, index) {
-                          final company = entry.value[index];
-                          return Container(
-                            decoration: BoxDecoration(
-                              border: Border(
-                                bottom: BorderSide(
-                                  color: Theme.of(context).dividerColor,
-                                  width: 0.5,
+                  for (var entry in companies.entries)
+                    SliverMainAxisGroup(
+                      slivers: [
+                        // Sticky Header (Huruf A, B, C...)
+                        SliverPersistentHeader(
+                          pinned: true,
+                          delegate: _SectionHeaderDelegate(entry.key),
+                        ),
+                        SliverList(
+                          delegate: SliverChildBuilderDelegate(
+                            (context, index) {
+                              final company = entry.value[index];
+                              return Container(
+                                decoration: BoxDecoration(
+                                  border: Border(
+                                    bottom: BorderSide(
+                                      color: Theme.of(context).dividerColor,
+                                      width: 0.5,
+                                    ),
+                                  ),
                                 ),
-                              ),
-                            ),
-                            // Widget item list yang menampilkan info perusahaan
-                            child: CompanyListItem(company: company),
-                          );
-                        },
-                        childCount: entry.value.length,
-                      ),
+                                // Widget item list yang menampilkan info perusahaan
+                                child: CompanyListItem(company: company),
+                              );
+                            },
+                            childCount: entry.value.length,
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
                   const SliverPadding(padding: EdgeInsets.only(bottom: 100)),
                 ],
               ),
@@ -106,7 +109,7 @@ class _SectionHeaderDelegate extends SliverPersistentHeaderDelegate {
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Container(
-      color: Theme.of(context).scaffoldBackgroundColor.withOpacity(0.95),
+      color: Theme.of(context).scaffoldBackgroundColor.withValues(alpha: 0.95),
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
       child: Text(
         title,

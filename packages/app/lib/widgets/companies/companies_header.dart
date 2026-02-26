@@ -14,41 +14,39 @@ class CompaniesHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 16, 20, 8),
+      padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                'Companies',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
+          RichText(
+            text: TextSpan(
+              text: 'Companies ',
+              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).colorScheme.onBackground,
+                  ),
+              children: [
+                TextSpan(
+                  text: '($count)',
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.normal,
+                        color: AppTheme.slate400,
+                      ),
                 ),
-              ),
-              const SizedBox(height: 4),
-              Text(
-                '$count total companies',
-                style: const TextStyle(
-                  fontSize: 14,
-                  color: AppTheme.slate500,
-                ),
-              ),
-            ],
-          ),
-          ElevatedButton.icon(
-            onPressed: onAddPressed,
-            icon: const Icon(Icons.add),
-            label: const Text('Add Company'),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: AppTheme.darkHover, // sesuaikan dengan tema Anda
-              foregroundColor: Colors.white,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
-              ),
+              ],
             ),
+          ),
+          ElevatedButton(
+            onPressed: onAddPressed,
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AppTheme.primary,
+              foregroundColor: Colors.white,
+              shape: const CircleBorder(),
+              padding: const EdgeInsets.all(12),
+              elevation: 4,
+              shadowColor: AppTheme.primary.withValues(alpha: 0.4),
+            ),
+            child: const Icon(Icons.add, size: 24),
           ),
         ],
       ),

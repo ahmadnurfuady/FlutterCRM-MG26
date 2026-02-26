@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:crm_dashboard/theme/app_theme.dart';
 import 'package:crm_dashboard/models/contact.dart';
@@ -63,29 +62,34 @@ class _ContactsScreenState extends State<ContactsScreen> {
             Expanded(
               child: CustomScrollView(
                 slivers: [
-                  for (var entry in contacts.entries) ...[
-                    SliverPersistentHeader(
-                      pinned: true,
-                      delegate: _SectionHeaderDelegate(entry.key),
+                  for (var entry in contacts.entries)
+                    SliverMainAxisGroup(
+                      slivers: [
+                        SliverPersistentHeader(
+                          pinned: true,
+                          delegate: _SectionHeaderDelegate(entry.key),
+                        ),
+                        SliverList(
+                          delegate: SliverChildBuilderDelegate(
+                            (context, index) {
+                              final contact = entry.value[index];
+                              return Container(
+                                  decoration: BoxDecoration(
+                                    border: Border(
+                                        bottom: BorderSide(
+                                            color:
+                                                Theme.of(context).dividerColor,
+                                            width: 0.5)),
+                                  ),
+                                  child: ContactListItem(contact: contact));
+                            },
+                            childCount: entry.value.length,
+                          ),
+                        ),
+                      ],
                     ),
-                    SliverList(
-                      delegate: SliverChildBuilderDelegate(
-                        (context, index) {
-                          final contact = entry.value[index];
-                          // Add border logic if needed, but keeping it simple for now
-                          return Container(
-                             decoration: BoxDecoration(
-                               border: Border(bottom: BorderSide(color: Theme.of(context).dividerColor, width: 0.5)),
-                             ),
-                            child: ContactListItem(contact: contact)
-                          );
-                        },
-                        childCount: entry.value.length,
-                      ),
-                    ),
-                  ],
-                    // Add padding at bottom for FAB
-                   const SliverPadding(padding: EdgeInsets.only(bottom: 100)),
+                  // Add padding at bottom for FAB
+                  const SliverPadding(padding: EdgeInsets.only(bottom: 100)),
                 ],
               ),
             ),
@@ -102,13 +106,16 @@ class _SectionHeaderDelegate extends SliverPersistentHeaderDelegate {
   _SectionHeaderDelegate(this.title);
 
   @override
-  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Container(
-      color: Theme.of(context).scaffoldBackgroundColor.withOpacity(0.95), // Backdrop blur effect simulation
+      color: Theme.of(context)
+          .scaffoldBackgroundColor
+          .withValues(alpha: 0.95), // Backdrop blur effect simulation
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
       child: Text(
         title,
-        style: TextStyle(
+        style: const TextStyle(
           color: AppTheme.slate500,
           fontWeight: FontWeight.w600,
           fontSize: 12,
