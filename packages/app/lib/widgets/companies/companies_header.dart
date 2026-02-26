@@ -23,7 +23,7 @@ class CompaniesHeader extends StatelessWidget {
               text: 'Companies ',
               style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                     fontWeight: FontWeight.bold,
-                    color: Theme.of(context).colorScheme.onBackground,
+                    color: Theme.of(context).colorScheme.onSurface,
                   ),
               children: [
                 TextSpan(

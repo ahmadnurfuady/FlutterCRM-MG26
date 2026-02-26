@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:crm_dashboard/widgets/dashboard/header_section.dart';
-import 'package:crm_dashboard/widgets/dashboard/kpi_grid.dart';
-import 'package:crm_dashboard/widgets/dashboard/upcoming_tasks.dart';
-import 'package:crm_dashboard/widgets/dashboard/revenue_chart.dart';
+import 'package:crm_dashboard/widgets/dashboard/summary_grid.dart';
+import 'package:crm_dashboard/widgets/dashboard/tasklist.dart';
+import 'package:crm_dashboard/widgets/dashboard/deals.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -19,11 +19,11 @@ class DashboardScreen extends StatelessWidget {
               child: ListView(
                 padding: const EdgeInsets.fromLTRB(24, 0, 24, 100),
                 children: const [
-                  KPIGrid(),
+                  Summary(),
                   SizedBox(height: 32),
-                  RevenueChart(),
+                  Deals(),
                   SizedBox(height: 32),
-                  UpcomingTasks(),
+                  TaskList(),
                 ],
               ),
             ),
