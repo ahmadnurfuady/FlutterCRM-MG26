@@ -5,7 +5,7 @@ import 'package:crm_dashboard/screens/contacts_screen.dart';
 import 'package:crm_dashboard/screens/company_screen.dart';
 import 'package:crm_dashboard/screens/deals_pipeline_screen.dart';
 import 'package:crm_dashboard/screens/tasks_screen.dart';
-import 'package:crm_dashboard/screens/settings_screen.dart';
+import 'package:crm_dashboard/screens/more_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -36,7 +36,7 @@ class _MainScreenState extends State<MainScreen> {
     const CompaniesScreen(),
     const DealsPipelineScreen(),
     const TasksScreen(),
-    const SettingsScreen(),
+    const MoreScreen(),
   ];
 
   void _onItemTapped(int index) {
