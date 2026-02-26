@@ -68,8 +68,8 @@ class BottomNavBar extends StatelessWidget {
             ),
             Expanded(
               child: _NavItem(
-                icon: Icons.settings,
-                label: 'Settings',
+                icon: Icons.more_horiz,
+                label: 'More',
                 isSelected: selectedIndex == 5,
                 onTap: () => onItemSelected(5),
               ),
