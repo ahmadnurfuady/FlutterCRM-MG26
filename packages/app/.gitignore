@@ -130,3 +130,5 @@ setup-*.bat
 setup-*.ps1
 run.bat
 fix.ps1
+
+google-services.json

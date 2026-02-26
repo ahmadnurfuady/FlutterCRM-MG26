@@ -62,29 +62,32 @@ class _ContactsScreenState extends State<ContactsScreen> {
             Expanded(
               child: CustomScrollView(
                 slivers: [
-                  for (var entry in contacts.entries) ...[
-                    SliverPersistentHeader(
-                      pinned: true,
-                      delegate: _SectionHeaderDelegate(entry.key),
+                  for (var entry in contacts.entries)
+                    SliverMainAxisGroup(
+                      slivers: [
+                        SliverPersistentHeader(
+                          pinned: true,
+                          delegate: _SectionHeaderDelegate(entry.key),
+                        ),
+                        SliverList(
+                          delegate: SliverChildBuilderDelegate(
+                            (context, index) {
+                              final contact = entry.value[index];
+                              return Container(
+                                  decoration: BoxDecoration(
+                                    border: Border(
+                                        bottom: BorderSide(
+                                            color:
+                                                Theme.of(context).dividerColor,
+                                            width: 0.5)),
+                                  ),
+                                  child: ContactListItem(contact: contact));
+                            },
+                            childCount: entry.value.length,
+                          ),
+                        ),
+                      ],
                     ),
-                    SliverList(
-                      delegate: SliverChildBuilderDelegate(
-                        (context, index) {
-                          final contact = entry.value[index];
-                          // Add border logic if needed, but keeping it simple for now
-                          return Container(
-                              decoration: BoxDecoration(
-                                border: Border(
-                                    bottom: BorderSide(
-                                        color: Theme.of(context).dividerColor,
-                                        width: 0.5)),
-                              ),
-                              child: ContactListItem(contact: contact));
-                        },
-                        childCount: entry.value.length,
-                      ),
-                    ),
-                  ],
                   // Add padding at bottom for FAB
                   const SliverPadding(padding: EdgeInsets.only(bottom: 100)),
                 ],
