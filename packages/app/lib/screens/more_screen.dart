@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:crm_dashboard/theme/app_theme.dart';
+import 'package:crm_dashboard/screens/profile_screen.dart';
+import 'package:crm_dashboard/screens/team_screen.dart';
 
 class MoreScreen extends StatelessWidget {
   const MoreScreen({super.key});
@@ -30,7 +32,14 @@ class MoreScreen extends StatelessWidget {
                   _MoreTile(
                     icon: Icons.person_outline,
                     label: 'Profile',
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ProfileScreen(),
+                        ),
+                      );
+                    },
                   ),
                   _MoreTile(
                     icon: Icons.notifications_outlined,
@@ -45,7 +54,14 @@ class MoreScreen extends StatelessWidget {
                   _MoreTile(
                     icon: Icons.group_outlined,
                     label: 'Team',
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const TeamScreen(),
+                        ),
+                      );
+                    },
                   ),
                   _MoreTile(
                     icon: Icons.settings_outlined,
