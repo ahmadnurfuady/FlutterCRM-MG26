@@ -120,10 +120,10 @@ class _ActivityItem extends StatelessWidget {
                     height: 12,
                     margin: const EdgeInsets.only(top: 16),
                     decoration: BoxDecoration(
-                      color: const Color(0xFF6366F1).withValues(alpha: 0.2),
+                      color: const Color(0xFF1C2434).withValues(alpha: 0.2),
                       shape: BoxShape.circle,
                       border:
-                          Border.all(color: const Color(0xFF6366F1), width: 2),
+                          Border.all(color: const Color(0xFF1C2434), width: 2),
                     ),
                   ),
                   if (!isLast)
@@ -216,19 +216,19 @@ const _dateStyle = TextStyle(color: Color(0xFF64748B), fontSize: 13);
 const List<Map<String, String>> activities = [
   {
     'date': '06 Feb 2026 - 10:39 AM',
-    'action': '📝 Edited Task',
+    'action': 'Edited Task',
     'user': 'Hanan',
     'note': ' changed CRM task status to "In Progress"'
   },
   {
     'date': '06 Feb 2026 - 09:15 AM',
-    'action': '➕ Added Task',
+    'action': 'Added Task',
     'user': 'Hanan',
     'note': ' created new lead follow-up'
   },
   {
     'date': '05 Feb 2026 - 04:20 PM',
-    'action': '👥 Team Update',
+    'action': 'Team Update',
     'user': 'System',
     'note': ' added Muhammad Haidar to TeamFeature'
   },

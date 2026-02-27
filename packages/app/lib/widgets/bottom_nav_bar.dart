@@ -97,7 +97,7 @@ class _NavItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final color =
-        isSelected ? AppTheme.primary : Theme.of(context).iconTheme.color;
+        isSelected ? AppTheme.darkBase : Theme.of(context).iconTheme.color;
     return InkWell(
       onTap: onTap,
       splashColor: Colors.transparent,
@@ -110,7 +110,7 @@ class _NavItem extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
             decoration: BoxDecoration(
               color: isSelected
-                  ? AppTheme.primary.withValues(alpha: 0.1)
+                  ? AppTheme.darkBase.withValues(alpha: 0.1)
                   : Colors.transparent,
               borderRadius: BorderRadius.circular(16),
             ),

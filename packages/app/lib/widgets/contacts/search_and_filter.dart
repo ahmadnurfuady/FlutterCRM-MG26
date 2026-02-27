@@ -60,7 +60,7 @@ class SearchAndFilter extends StatelessWidget {
               ),
               const SizedBox(width: 12),
               _FilterChip(
-                label: 'Tags',
+                label: 'Status',
                 icon: Icons.keyboard_arrow_down,
                 iconRight: true,
                 backgroundColor: Theme.of(context).cardColor,

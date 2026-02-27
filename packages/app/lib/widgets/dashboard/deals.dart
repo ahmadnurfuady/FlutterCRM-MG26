@@ -73,27 +73,27 @@ class Deals extends StatelessWidget {
               label: 'New',
               value: '2.1K',
               progress: 0.9,
-              color: Color(0xFF6366F1)),
+              color: Color(0xFF1C2434)),
           const _PipelineItem(
               label: 'Qualified',
               value: '1.1K',
               progress: 0.6,
-              color: Color(0xFF3B82F6)),
+              color: Color(0xFF1C2434)),
           const _PipelineItem(
               label: 'Advanced',
               value: '500',
               progress: 0.4,
-              color: Color(0xFF8B5CF6)),
+              color: Color(0xFF1C2434)),
           const _PipelineItem(
               label: 'Won',
               value: '176',
               progress: 0.2,
-              color: Color(0xFF10B981)),
+              color: Color(0xFF1C2434)),
           const _PipelineItem(
               label: 'Lost',
               value: '210',
               progress: 0.15,
-              color: Color(0xFFEF4444)),
+              color: Color(0xFF1C2434)),
         ],
       ),
     );

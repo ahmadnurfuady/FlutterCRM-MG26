@@ -13,7 +13,6 @@ class DashboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF8FAFC),
-      drawer: const Drawer(), // Menu burger otomatis terhubung ke leading icon
       body: CustomScrollView(
         slivers: [
           // --- 1. HEADER DINAMIS (Pindahan dari HeaderSection lama) ---
@@ -22,14 +21,7 @@ class DashboardScreen extends StatelessWidget {
             floating: false,
             pinned: true,
             elevation: 0,
-            backgroundColor: const Color(0xFF1E56A0),
-            // Tombol Burger
-            leading: Builder(
-              builder: (context) => IconButton(
-                icon: const Icon(Icons.menu, color: Colors.white),
-                onPressed: () => Scaffold.of(context).openDrawer(),
-              ),
-            ),
+            backgroundColor: const Color(0xFF1C2434),
             actions: [
               IconButton(
                 icon: const Icon(Icons.notifications_none_rounded,
@@ -41,14 +33,14 @@ class DashboardScreen extends StatelessWidget {
               collapseMode: CollapseMode.pin,
               centerTitle: false,
               titlePadding: const EdgeInsets.only(
-                  left: 56, bottom: 16), // Biar mepet burger menu
+                  left: 27, bottom: 16), // Biar mepet burger menu
               title: LayoutBuilder(
                 builder: (context, constraints) {
                   var top = constraints.biggest.height;
                   // Teks muncul saat navbar mengecil (ketinggian < 100)
                   return top < 100
                       ? const Text(
-                          "Hai, Sayangku 👋",
+                          "CRM-MG26 | Hai, Sayangku 👋",
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,
@@ -62,7 +54,7 @@ class DashboardScreen extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(24, 80, 24, 20),
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [Color(0xFF1E56A0), Color(0xFF163172)],
+                    colors: [Color(0xFF1C2434), Color(0xFF1C2434)],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
