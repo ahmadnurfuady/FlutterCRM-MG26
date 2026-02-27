@@ -7,51 +7,62 @@ class Summary extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        // Tentukan jumlah kolom berdasarkan lebar layar
-        int crossAxisCount = 2; // Default mobile
-        if (constraints.maxWidth > 600) crossAxisCount = 2; // Tablet
-        if (constraints.maxWidth > 1100) crossAxisCount = 4; // Desktop
+        // Tentukan jumlah kolom berdasarkan lebar
+        int crossAxisCount = 2; // default mobile
+        if (constraints.maxWidth > 600)
+          crossAxisCount =
+              2; // tablet (tetap 2 kolom, tapi nanti kita atur layoutnya)
+        if (constraints.maxWidth > 1100) crossAxisCount = 4; // desktop
 
-        return GridView.count(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          crossAxisCount: crossAxisCount,
-          mainAxisSpacing: 16, // Jarak antar baris diperlebar biar lega
-          crossAxisSpacing: 16, // Jarak antar kolom
-          // Rasio fleksibel: kalau layar sempit, kotak agak meninggi
-          childAspectRatio: constraints.maxWidth < 600
-              ? 1.5 // Rasio untuk HP (agak kotak/tinggi karena sempit)
-              : (constraints.maxWidth > 1200
-                  ? 2.2
-                  : 2.5), // Rasio Desktop/Tablet
-          children: const [
-            _SummaryCard(
-              icon: Icons.people_outline,
-              value: '18.6K',
-              label: 'Total Contacts',
-              percentage: '12%',
-              isUp: true,
+        // Hitung lebar setiap kartu agar pas dengan jumlah kolom dan spacing
+        double spacing = 16; // jarak antar kartu (horizontal & vertikal)
+        double totalSpacing = spacing * (crossAxisCount - 1);
+        double cardWidth =
+            (constraints.maxWidth - totalSpacing) / crossAxisCount;
+
+        return Wrap(
+          spacing: spacing,
+          runSpacing: spacing,
+          children: [
+            SizedBox(
+              width: cardWidth,
+              child: const _SummaryCard(
+                icon: Icons.people_outline,
+                value: '18.6K',
+                label: 'Total Contacts',
+                percentage: '12%',
+                isUp: true,
+              ),
             ),
-            _SummaryCard(
-              icon: Icons.business_rounded,
-              value: '12.4K',
-              label: 'Total Companies',
-              percentage: '8%',
-              isUp: true,
+            SizedBox(
+              width: cardWidth,
+              child: const _SummaryCard(
+                icon: Icons.business_rounded,
+                value: '12.4K',
+                label: 'Total Companies',
+                percentage: '8%',
+                isUp: true,
+              ),
             ),
-            _SummaryCard(
-              icon: Icons.business_center_outlined,
-              value: '852',
-              label: 'Total Deals',
-              percentage: '5%',
-              isUp: false, // Contoh jika turun
+            SizedBox(
+              width: cardWidth,
+              child: const _SummaryCard(
+                icon: Icons.business_center_outlined,
+                value: '852',
+                label: 'Total Deals',
+                percentage: '5%',
+                isUp: false,
+              ),
             ),
-            _SummaryCard(
-              icon: Icons.assignment_late_outlined,
-              value: '2.4K',
-              label: 'Total Tasks',
-              percentage: '18%',
-              isUp: true,
+            SizedBox(
+              width: cardWidth,
+              child: const _SummaryCard(
+                icon: Icons.assignment_late_outlined,
+                value: '2.4K',
+                label: 'Total Tasks',
+                percentage: '18%',
+                isUp: true,
+              ),
             ),
           ],
         );
@@ -78,7 +89,6 @@ class _SummaryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // 1. Kurangi padding agar ruang konten lebih luas
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -93,27 +103,21 @@ class _SummaryCard extends StatelessWidget {
         ],
       ),
       child: Column(
-        // 2. Gunakan Column agar icon & teks tidak berebut ruang horizontal
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          // Baris ikon dan persentase
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              // 3. Perkecil ukuran container icon
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   color: const Color(0xFFF1F5F9),
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: Icon(
-                  icon,
-                  size: 20, // Icon lebih kecil
-                  color: const Color(0xFF475569),
-                ),
+                child: Icon(icon, size: 20, color: const Color(0xFF475569)),
               ),
-              // Indikator Persentase (lebih simpel)
               Row(
                 children: [
                   Icon(
@@ -134,16 +138,15 @@ class _SummaryCard extends StatelessWidget {
               ),
             ],
           ),
-
-          // 4. Bagian Teks
+          const SizedBox(height: 12),
+          // Label dan nilai
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 label,
-                maxLines: 1, // Agar tidak turun ke bawah
-                overflow:
-                    TextOverflow.ellipsis, // Jika kepanjangan jadi titik-titik
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
                 style: const TextStyle(
                   fontSize: 11,
                   fontWeight: FontWeight.w500,
@@ -152,10 +155,7 @@ class _SummaryCard extends StatelessWidget {
               ),
               const SizedBox(height: 2),
               FittedBox(
-                // 5. Penting! Agar angka mengecil otomatis jika layar sangat sempit
-                fit: TextSelectionTheme.of(context).cursorColor != null
-                    ? BoxFit.scaleDown
-                    : BoxFit.scaleDown,
+                fit: BoxFit.scaleDown,
                 child: Text(
                   value,
                   style: const TextStyle(
