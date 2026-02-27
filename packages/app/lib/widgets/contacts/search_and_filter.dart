@@ -47,16 +47,16 @@ class SearchAndFilter extends StatelessWidget {
                     .dividerColor
                     .withValues(alpha: 0.5), // Approximate slate-200
                 textColor: Theme.of(context).textTheme.bodyMedium?.color ??
-                    AppTheme.slate800,
+                    AppTheme.white,
               ),
               const SizedBox(width: 12),
-              _FilterChip(
+              const _FilterChip(
                 label: 'Status: Active',
                 icon: Icons.close,
                 iconRight: true,
-                backgroundColor: AppTheme.primary.withValues(alpha: 0.1),
+                backgroundColor: Colors.white,
                 textColor: AppTheme.primary,
-                borderColor: AppTheme.primary.withValues(alpha: 0.2),
+                borderColor: Colors.white,
               ),
               const SizedBox(width: 12),
               _FilterChip(

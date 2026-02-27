@@ -5,7 +5,6 @@ import 'package:crm_dashboard/data/mock_contacts.dart';
 import 'package:crm_dashboard/widgets/contacts/contacts_header.dart';
 import 'package:crm_dashboard/widgets/contacts/search_and_filter.dart';
 import 'package:crm_dashboard/widgets/contacts/contact_list_item.dart';
-
 import 'package:crm_dashboard/widgets/contacts/add_contact_form.dart';
 
 class ContactsScreen extends StatefulWidget {
@@ -19,19 +18,24 @@ class _ContactsScreenState extends State<ContactsScreen> {
   // Group contacts by first letter
   Map<String, List<Contact>> get groupedContacts {
     final Map<String, List<Contact>> grouped = {};
+
     for (var contact in mockContacts) {
       final letter = contact.name[0].toUpperCase();
+
       if (!grouped.containsKey(letter)) {
         grouped[letter] = [];
       }
+
       grouped[letter]!.add(contact);
     }
-    // Sort keys
+
     final sortedKeys = grouped.keys.toList()..sort();
     final Map<String, List<Contact>> sortedGrouped = {};
+
     for (var key in sortedKeys) {
       sortedGrouped[key] = grouped[key]!;
     }
+
     return sortedGrouped;
   }
 
@@ -53,12 +57,22 @@ class _ContactsScreenState extends State<ContactsScreen> {
         bottom: false,
         child: Column(
           children: [
-            ContactsHeader(
-              count: mockContacts.length,
-              onAddPressed: _showAddContactForm,
+            // HEADER + SEARCH + FILTER (BACKGROUND BIRU)
+            Container(
+              color: AppTheme.primary,
+              child: Column(
+                children: [
+                  ContactsHeader(
+                    count: mockContacts.length,
+                    onAddPressed: _showAddContactForm,
+                  ),
+                  const SearchAndFilter(),
+                  const SizedBox(height: 16),
+                ],
+              ),
             ),
-            const SearchAndFilter(),
-            const SizedBox(height: 16),
+
+            // CONTACT LIST
             Expanded(
               child: CustomScrollView(
                 slivers: [
@@ -73,23 +87,27 @@ class _ContactsScreenState extends State<ContactsScreen> {
                           delegate: SliverChildBuilderDelegate(
                             (context, index) {
                               final contact = entry.value[index];
+
                               return Container(
-                                  decoration: BoxDecoration(
-                                    border: Border(
-                                        bottom: BorderSide(
-                                            color:
-                                                Theme.of(context).dividerColor,
-                                            width: 0.5)),
+                                decoration: BoxDecoration(
+                                  border: Border(
+                                    bottom: BorderSide(
+                                      color: Theme.of(context).dividerColor,
+                                      width: 0.5,
+                                    ),
                                   ),
-                                  child: ContactListItem(contact: contact));
+                                ),
+                                child: ContactListItem(contact: contact),
+                              );
                             },
                             childCount: entry.value.length,
                           ),
                         ),
                       ],
                     ),
-                  // Add padding at bottom for FAB
-                  const SliverPadding(padding: EdgeInsets.only(bottom: 100)),
+                  const SliverPadding(
+                    padding: EdgeInsets.only(bottom: 100),
+                  ),
                 ],
               ),
             ),
@@ -109,9 +127,7 @@ class _SectionHeaderDelegate extends SliverPersistentHeaderDelegate {
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Container(
-      color: Theme.of(context)
-          .scaffoldBackgroundColor
-          .withValues(alpha: 0.95), // Backdrop blur effect simulation
+      color: Theme.of(context).scaffoldBackgroundColor.withValues(alpha: 0.95),
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
       child: Text(
         title,

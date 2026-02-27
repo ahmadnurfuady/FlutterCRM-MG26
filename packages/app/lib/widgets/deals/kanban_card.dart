@@ -8,8 +8,9 @@ class KanbanCard extends StatelessWidget {
   final String? ownerInitials;
   final String? ownerImage;
   final Color? ownerColor;
-  final double probability; // 0.0 to 1.0
+  final double probability;
   final Color progressColor;
+  final Color? backgroundColor; // <-- PARAMETER BARU
 
   const KanbanCard({
     super.key,
@@ -21,23 +22,21 @@ class KanbanCard extends StatelessWidget {
     this.ownerColor,
     required this.probability,
     required this.progressColor,
+    this.backgroundColor, // <-- KONSTRUKTOR DITAMBAH
   });
 
   @override
   Widget build(BuildContext context) {
-    // Determine if we are in dark mode to adjust colors similar to the Tailwind config
-    // The design has specific colors for dark mode.
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Theme.of(context).cardTheme.color,
-        borderRadius: BorderRadius.circular(8), // rounded-lg
+        color: backgroundColor ??
+            Theme.of(context).cardTheme.color, // <-- PRIORITAS backgroundColor
+        borderRadius: BorderRadius.circular(8),
         border: Border.all(
-          color: isDark
-              ? const Color(0xFF334155)
-              : const Color(0xFFE2E8F0), // slate-700 : slate-200 (approx)
+          color: isDark ? const Color(0xFF334155) : const Color(0xFFE2E8F0),
         ),
         boxShadow: [
           BoxShadow(
@@ -50,32 +49,50 @@ class KanbanCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Header: Title and Menu Icon
+          /// HEADER
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              /// TITLE
               Expanded(
                 child: Text(
                   title,
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                         fontWeight: FontWeight.w600,
-                        // Group hover effect simulation (not perfect in mobile but visualizing intent)
                       ),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
               const SizedBox(width: 8),
-              Icon(
-                Icons.more_horiz,
-                size: 16,
-                color: isDark ? Colors.grey[400] : Colors.grey[400],
+
+              /// DROPDOWN STAGE
+              PopupMenuButton<String>(
+                icon: Icon(
+                  Icons.keyboard_arrow_down,
+                  size: 20,
+                  color: isDark ? Colors.grey[400] : Colors.grey[600],
+                ),
+                onSelected: (value) {
+                  debugPrint("Move to stage: $value");
+                },
+                itemBuilder: (context) => [
+                  const PopupMenuItem(value: "new", child: Text("New")),
+                  const PopupMenuItem(
+                      value: "qualified", child: Text("Qualified")),
+                  const PopupMenuItem(
+                      value: "advanced", child: Text("Advanced")),
+                  const PopupMenuItem(value: "payment", child: Text("Payment")),
+                  const PopupMenuItem(value: "won", child: Text("Won")),
+                  const PopupMenuItem(value: "lose", child: Text("Lose")),
+                ],
               ),
             ],
           ),
           const SizedBox(height: 8),
-          // Amount
+
+          /// AMOUNT
           Text(
             amount,
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
@@ -84,7 +101,8 @@ class KanbanCard extends StatelessWidget {
                 ),
           ),
           const SizedBox(height: 12),
-          // Owner
+
+          /// OWNER
           Row(
             children: [
               if (ownerImage != null)
@@ -121,7 +139,8 @@ class KanbanCard extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 16),
-          // Probability Bar
+
+          /// PROBABILITY BAR
           Row(
             children: [
               Expanded(
@@ -130,7 +149,7 @@ class KanbanCard extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: isDark
                         ? const Color(0xFF374151)
-                        : const Color(0xFFF3F4F6), // gray-700 : gray-100
+                        : const Color(0xFFF3F4F6),
                     borderRadius: BorderRadius.circular(9999),
                   ),
                   child: FractionallySizedBox(

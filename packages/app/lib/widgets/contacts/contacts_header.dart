@@ -23,14 +23,14 @@ class ContactsHeader extends StatelessWidget {
               text: 'Contacts ',
               style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                     fontWeight: FontWeight.bold,
-                    color: Theme.of(context).colorScheme.onSurface,
+                    color: Colors.white,
                   ),
               children: [
                 TextSpan(
                   text: '($count)',
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.normal,
-                        color: AppTheme.slate400,
+                        color: Colors.white70,
                       ),
                 ),
               ],
