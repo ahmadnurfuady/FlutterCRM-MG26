@@ -34,7 +34,7 @@ class _MainScreenState extends State<MainScreen> {
     const DashboardScreen(),
     const ContactsScreen(),
     const CompaniesScreen(),
-    DealsPipelineScreen(),
+    const DealsPipelineScreen(),
     const TasksScreen(),
     const MoreScreen(),
   ];

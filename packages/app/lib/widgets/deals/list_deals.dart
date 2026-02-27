@@ -6,7 +6,7 @@ import 'package:crm_dashboard/screens/deals_pipeline_screen.dart'; // untuk meng
 class DealsListView extends StatelessWidget {
   final List<Deal> deals;
 
-  const DealsListView({Key? key, required this.deals}) : super(key: key);
+  const DealsListView({super.key, required this.deals});
 
   @override
   Widget build(BuildContext context) {
