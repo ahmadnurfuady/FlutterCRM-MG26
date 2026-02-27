@@ -5,6 +5,7 @@ import 'package:crm_dashboard/data/mock_companies.dart';
 import 'package:crm_dashboard/widgets/companies/companies_header.dart';
 import 'package:crm_dashboard/widgets/companies/company_list_item.dart';
 import 'package:crm_dashboard/widgets/contacts/search_and_filter.dart';
+import 'package:crm_dashboard/widgets/companies/add_company_form.dart';
 
 class CompaniesScreen extends StatefulWidget {
   const CompaniesScreen({super.key});
@@ -36,6 +37,18 @@ class _CompaniesScreenState extends State<CompaniesScreen> {
     }
 
     return sortedGrouped;
+  }
+
+  void _showAddCompanyForm() {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      enableDrag: true,
+      showDragHandle: true,
+      useSafeArea: true,
+      builder: (context) => const AddCompanyForm(),
+    );
   }
 
   @override

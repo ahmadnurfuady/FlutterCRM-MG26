@@ -7,6 +7,8 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController? controller;
   final TextInputType keyboardType;
   final bool isRequired;
+  final bool readOnly;
+  final bool enabled;
 
   const CustomTextField({
     super.key,
@@ -15,6 +17,8 @@ class CustomTextField extends StatelessWidget {
     this.controller,
     this.keyboardType = TextInputType.text,
     this.isRequired = false,
+    this.readOnly = false,
+    this.enabled = true,
   });
 
   @override
@@ -48,6 +52,8 @@ class CustomTextField extends StatelessWidget {
         TextField(
           controller: controller,
           keyboardType: keyboardType,
+          readOnly: readOnly,
+          enabled: enabled,
           style: TextStyle(
             fontSize: 14,
             color: isDark ? Colors.white : AppTheme.slate900,
@@ -58,9 +64,14 @@ class CustomTextField extends StatelessWidget {
               color: isDark ? AppTheme.slate500 : AppTheme.slate400,
               fontSize: 14,
             ),
-            contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+            contentPadding:
+                const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
             filled: true,
-            fillColor: isDark ? AppTheme.surfaceDark : Colors.white,
+            fillColor: !enabled
+                ? (isDark
+                    ? AppTheme.slate800.withValues(alpha: 0.5)
+                    : AppTheme.slate50)
+                : (isDark ? AppTheme.surfaceDark : Colors.white),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
               borderSide: BorderSide(

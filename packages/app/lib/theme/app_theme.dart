@@ -9,6 +9,7 @@ class AppTheme {
   static const Color surfaceHighlight = Color(0xFF233040);
 
   // Colors from the design
+  static const Color slate50 = Color(0xFFF8FAFC);
   static const Color slate200 = Color(0xFFE2E8F0);
   static const Color slate400 = Color(0xFF94A3B8);
   static const Color slate500 = Color(0xFF64748B);
