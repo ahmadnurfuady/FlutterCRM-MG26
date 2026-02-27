@@ -228,8 +228,8 @@ class _TeamScreenState extends State<TeamScreen> {
                     }),
                     decoration: InputDecoration(
                       hintText: "Search team...",
-                      hintStyle:
-                          TextStyle(color: AppTheme.slate400, fontSize: 13),
+                      hintStyle: const TextStyle(
+                          color: AppTheme.slate400, fontSize: 13),
                       contentPadding: const EdgeInsets.symmetric(
                           horizontal: 12, vertical: 0),
                       filled: true,
@@ -373,7 +373,7 @@ class _TeamScreenState extends State<TeamScreen> {
                 constraints: const BoxConstraints(),
               ),
               const SizedBox(width: 8),
-              Text("Page",
+              const Text("Page",
                   style: TextStyle(fontSize: 13, color: AppTheme.slate500)),
               const SizedBox(width: 8),
               SizedBox(
@@ -400,7 +400,8 @@ class _TeamScreenState extends State<TeamScreen> {
               ),
               const SizedBox(width: 8),
               Text("of $_totalPages",
-                  style: TextStyle(fontSize: 13, color: AppTheme.slate500)),
+                  style:
+                      const TextStyle(fontSize: 13, color: AppTheme.slate500)),
               const SizedBox(width: 8),
               IconButton(
                 onPressed: _currentPage < _totalPages
@@ -424,10 +425,10 @@ class _TeamScreenState extends State<TeamScreen> {
       return Container(
         padding: const EdgeInsets.symmetric(vertical: 60),
         alignment: Alignment.center,
-        child: Column(
+        child: const Column(
           children: [
             Icon(Icons.group_off_outlined, size: 48, color: AppTheme.slate400),
-            const SizedBox(height: 12),
+            SizedBox(height: 12),
             Text("No teams found",
                 style: TextStyle(color: AppTheme.slate500, fontSize: 14)),
           ],

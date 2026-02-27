@@ -77,7 +77,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Center(
               child: Column(
                 children: [
-                  Container(
+                  SizedBox(
                     width: 120,
                     child: AspectRatio(
                       aspectRatio: 3 / 4,
@@ -126,7 +126,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ),
                   const SizedBox(height: 12),
-                  Text(
+                  const Text(
                     'Tap to change photo',
                     style: TextStyle(
                       fontSize: 12,
